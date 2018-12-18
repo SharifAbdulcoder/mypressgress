@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  tls:
+  - hosts:
+    - www.uzbozor.com
+    secretName: secret
+  rules:
+  - host: www.uzbozor.com
+    http:
+      paths:
+      - path: /var/www/html
+        backend:
+          serviceName: wordpress
+          servicePort: 80
